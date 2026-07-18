@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel de stock | Havana Lencerías</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcfaf8;
+      --white: #ffffff;
+      --gold: #c7a86b;
+      --gold-dark: #a88953;
+      --text: #3d342f;
+      --text-soft: #7a6d66;
+      --line: #e9dfd9;
+      --pink-soft: #f6eaee;
+      --rojo: #b74a5a;
+      --verde: #4a8a63;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px 16px 60px;
+    }
+
+    .container { width: min(900px, 100%); margin: 0 auto; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .subtitulo { color: var(--text-soft); font-size: 0.92rem; margin-bottom: 24px; }
+
+    /* ---------- Pantalla de acceso ---------- */
+    #login {
+      max-width: 380px;
+      margin: 60px auto;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    #login img { width: 74px; height: 74px; border-radius: 50%; margin: 0 auto 16px; display: block; }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    input[type="password"]:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+    .btn {
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      background: var(--text);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover { background: var(--gold-dark); }
+
+    .error { color: var(--rojo); font-size: 0.85rem; margin-top: 10px; min-height: 18px; }
+
+    /* ---------- Resumen y alertas ---------- */
+    .resumen {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tarjeta {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .tarjeta strong { display: block; font-size: 1.7rem; font-weight: 600; line-height: 1.2; }
+    .tarjeta span { font-size: 0.72rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .tarjeta.alerta { border-color: var(--gold); background: #fffdf6; }
+    .tarjeta.alerta strong { color: var(--gold-dark); }
+    .tarjeta.peligro { border-color: var(--rojo); background: #fdf6f7; }
+    .tarjeta.peligro strong { color: var(--rojo); }
+
+    .avisos {
+      background: #fffdf6;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .avisos h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+
+    .avisos ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .avisos li { font-size: 0.88rem; display: flex; align-items: center; gap: 8px; }
+    .avisos .vacio { color: var(--verde); font-size: 0.88rem; }
+
+    /* ---------- Lista de prendas ---------- */
+    .categoria {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 26px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fila {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+    }
+
+    .fila.baja { border-color: var(--gold); background: #fffdf6; }
+    .fila.cero { border-color: var(--rojo); background: #fdf6f7; }
+
+    .fila img { width: 48px; height: 60px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+
+    .fila-nombre { flex: 1; min-width: 0; }
+    .fila-nombre strong { display: block; font-size: 0.95rem; font-weight: 500; }
+    .fila-nombre small { color: var(--text-soft); font-size: 0.75rem; }
+
+    .contador { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .contador button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--text);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .contador button:hover { border-color: var(--gold); color: var(--gold-dark); }
+    .contador button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .contador .valor {
+      min-width: 34px;
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .toggle-limitada {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      cursor: pointer;
+      user-select: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .toggle-limitada input { accent-color: var(--gold-dark); width: 16px; height: 16px; cursor: pointer; }
+
+    /* ---------- Barra de guardado ---------- */
+    .barra {
+      position: sticky;
+      bottom: 0;
+      margin-top: 28px;
+      background: rgba(252, 250, 248, 0.97);
+      border-top: 1px solid var(--line);
+      padding: 14px 0;
+      backdrop-filter: blur(6px);
+    }
+
+    .barra-inner { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .barra .btn { width: auto; padding: 12px 22px; }
+    .barra .estado { font-size: 0.85rem; color: var(--text-soft); flex: 1; min-width: 180px; }
+    .barra .estado.pendiente { color: var(--rojo); font-weight: 500; }
+
+    .nota {
+      background: var(--pink-soft);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .nota strong { color: var(--text); }
+
+    .oculto { display: none !important; }
+
+    @media (max-width: 640px) {
+      .resumen { grid-template-columns: repeat(2, 1fr); }
+      .fila { flex-wrap: wrap; }
+      .fila-nombre { flex-basis: 100%; order: -1; }
+      .toggle-limitada { margin-left: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ---------- ACCESO ---------- -->
+  <div id="login">
+    <img src="Imagenes/logo-havana.jpg" alt="Havana Lencerías">
+    <h1 style="font-size:1.8rem;">Panel de stock</h1>
+    <p class="subtitulo">Ingresá la contraseña para continuar.</p>
+    <input type="password" id="clave" placeholder="Contraseña" autocomplete="current-password">
+    <button class="btn" id="entrar">Entrar</button>
+    <p class="error" id="errorLogin"></p>
+  </div>
+
+  <!-- ---------- PANEL ---------- -->
+  <div class="container oculto" id="panel">
+    <h1>Panel de stock</h1>
+    <p class="subtitulo">Ajustá las cantidades y descargá el archivo actualizado.</p>
+
+    <div class="resumen" id="resumen"></div>
+
+    <div class="avisos">
+      <h2>Alertas de stock</h2>
+      <ul id="listaAvisos"></ul>
+    </div>
+
+    <div id="lista"></div>
+
+    <div class="barra">
+      <div class="barra-inner">
+        <span class="estado" id="estado">Sin cambios pendientes.</span>
+        <button class="btn" id="descargar">Descargar stock.js</button>
+      </div>
+    </div>
+
+    <div class="nota">
+      <strong>¿Cómo se publican los cambios?</strong><br>
+      1. Ajustá las cantidades acá.<br>
+      2. Tocá <strong>Descargar stock.js</strong>.<br>
+      3. Subí ese archivo al hosting, reemplazando el <strong>stock.js</strong> anterior.<br>
+      Recién ahí las clientas ven la disponibilidad nueva.
+      <br><br>
+      <strong>Sobre la contraseña:</strong> esta página no está enlazada desde el sitio y no la
+      indexa Google, pero la contraseña vive en el código de la página: alguien con conocimientos
+      técnicos podría verla. No guardes información sensible acá.
+    </div>
+  </div>
+
+  <script src="stock.js"></script>
+  <script>
+    (function () {
+      /* ============================================================
+         Cambiá esta contraseña por la que quieras.
+         Recordá: es una barrera simple, no una seguridad real.
+         ============================================================ */
+      const CLAVE = "havana2026";
+
+      const login = document.getElementById("login");
+      const panel = document.getElementById("panel");
+      const inputClave = document.getElementById("clave");
+      const errorLogin = document.getElementById("errorLogin");
+
+      // Copia de trabajo: no se toca el original hasta descargar
+      const productos = JSON.parse(JSON.stringify(window.HAVANA_PRODUCTOS));
+      const original = JSON.parse(JSON.stringify(window.HAVANA_PRODUCTOS));
+      const UMBRAL = window.HAVANA_CONFIG.umbralStockBajo;
+
+      /* ---------- Acceso ---------- */
+      function entrar() {
+        if (inputClave.value !== CLAVE) {
+          errorLogin.textContent = "Contraseña incorrecta.";
+          inputClave.value = "";
+          inputClave.focus();
+          return;
+        }
+        sessionStorage.setItem("havanaPanel", "1");
+        login.classList.add("oculto");
+        panel.classList.remove("oculto");
+        render();
+      }
+
+      document.getElementById("entrar").addEventListener("click", entrar);
+      inputClave.addEventListener("keydown", (e) => { if (e.key === "Enter") entrar(); });
+
+      // Se mantiene la sesión mientras no cierre la pestaña
+      if (sessionStorage.getItem("havanaPanel") === "1") {
+        login.classList.add("oculto");
+        panel.classList.remove("oculto");
+      }
+
+      /* ---------- Cambios sin guardar ---------- */
+      function hayCambios() {
+        return Object.keys(productos).some(
+          (id) =>
+            productos[id].stock !== original[id].stock ||
+            productos[id].limitada !== original[id].limitada
+        );
+      }
+
+      function actualizarEstado() {
+        const estado = document.getElementById("estado");
+        if (hayCambios()) {
+          estado.textContent = "Tenés cambios sin descargar.";
+          estado.classList.add("pendiente");
+        } else {
+          estado.textContent = "Sin cambios pendientes.";
+          estado.classList.remove("pendiente");
+        }
+      }
+
+      // Evita perder ajustes por cerrar la pestaña de más
+      window.addEventListener("beforeunload", (e) => {
+        if (!hayCambios()) return;
+        e.preventDefault();
+        e.returnValue = "";
+      });
+
+      /* ---------- Render ---------- */
+      function render() {
+        renderResumen();
+        renderAvisos();
+        renderLista();
+        actualizarEstado();
+      }
+
+      function renderResumen() {
+        const vals = Object.values(productos);
+        const total = vals.reduce((s, p) => s + p.stock, 0);
+        const agotados = vals.filter((p) => p.stock === 0).length;
+        const bajos = vals.filter((p) => p.stock > 0 && p.stock <= UMBRAL).length;
+        const limitadas = vals.filter((p) => p.limitada).length;
+
+        document.getElementById("resumen").innerHTML = `
+          <div class="tarjeta"><strong>${total}</strong><span>Unidades totales</span></div>
+          <div class="tarjeta ${bajos ? "alerta" : ""}"><strong>${bajos}</strong><span>Stock bajo</span></div>
+          <div class="tarjeta ${agotados ? "peligro" : ""}"><strong>${agotados}</strong><span>Agotadas</span></div>
+          <div class="tarjeta"><strong>${limitadas}</strong><span>Ed. limitada</span></div>
+        `;
+      }
+
+      function renderAvisos() {
+        const ul = document.getElementById("listaAvisos");
+        const criticos = Object.entries(productos)
+          .filter(([, p]) => p.stock <= UMBRAL)
+          .sort((a, b) => a[1].stock - b[1].stock);
+
+        if (!criticos.length) {
+          ul.innerHTML = '<li class="vacio">✓ Todas las prendas tienen stock suficiente.</li>';
+          return;
+        }
+
+        ul.innerHTML = criticos
+          .map(([, p]) => {
+            const icono = p.stock === 0 ? "⛔" : "⚠️";
+            const txt =
+              p.stock === 0
+                ? "AGOTADA — no se puede vender"
+                : p.stock === 1
+                ? "última unidad"
+                : `quedan ${p.stock}`;
+            return `<li>${icono} <strong>${p.nombre}</strong> — ${txt}</li>`;
+          })
+          .join("");
+      }
+
+      function renderLista() {
+        const cont = document.getElementById("lista");
+        cont.innerHTML = "";
+
+        const categorias = [...new Set(Object.values(productos).map((p) => p.categoria))];
+
+        categorias.forEach((cat) => {
+          const h = document.createElement("h2");
+          h.className = "categoria";
+          h.textContent = cat;
+          cont.appendChild(h);
+
+          Object.entries(productos)
+            .filter(([, p]) => p.categoria === cat)
+            .forEach(([id, p]) => cont.appendChild(fila(id, p)));
+        });
+      }
+
+      function fila(id, p) {
+        const div = document.createElement("div");
+        div.className = "fila";
+        if (p.stock === 0) div.classList.add("cero");
+        else if (p.stock <= UMBRAL) div.classList.add("baja");
+
+        const img = document.createElement("img");
+        img.src = p.foto;
+        img.alt = "";
+        img.loading = "lazy";
+        img.onerror = function () { this.style.opacity = "0.15"; };
+
+        const nombre = document.createElement("div");
+        nombre.className = "fila-nombre";
+        nombre.innerHTML = `<strong>${p.nombre}</strong><small>${window.havanaEstadoStock(p.stock).texto}</small>`;
+
+        const contador = document.createElement("div");
+        contador.className = "contador";
+
+        const menos = document.createElement("button");
+        menos.type = "button";
+        menos.textContent = "−";
+        menos.setAttribute("aria-label", `Quitar una unidad de ${p.nombre}`);
+        menos.disabled = p.stock <= 0;
+        menos.addEventListener("click", () => {
+          if (productos[id].stock > 0) productos[id].stock--;
+          render();
+        });
+
+        const valor = document.createElement("span");
+        valor.className = "valor";
+        valor.textContent = p.stock;
+
+        const mas = document.createElement("button");
+        mas.type = "button";
+        mas.textContent = "+";
+        mas.setAttribute("aria-label", `Agregar una unidad de ${p.nombre}`);
+        mas.addEventListener("click", () => {
+          productos[id].stock++;
+          render();
+        });
+
+        contador.append(menos, valor, mas);
+
+        const toggle = document.createElement("label");
+        toggle.className = "toggle-limitada";
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = p.limitada;
+        check.addEventListener("change", () => {
+          productos[id].limitada = check.checked;
+          render();
+        });
+        toggle.append(check, document.createTextNode("Limitada"));
+
+        div.append(img, nombre, contador, toggle);
+        return div;
+      }
+
+      /* ---------- Generar el archivo ---------- */
+      function generarArchivo() {
+        const cats = [...new Set(Object.values(productos).map((p) => p.categoria))];
+        let cuerpo = "";
+
+        cats.forEach((cat) => {
+          cuerpo += `\n  /* ---------- ${cat.toUpperCase()} ---------- */\n`;
+          Object.entries(productos)
+            .filter(([, p]) => p.categoria === cat)
+            .forEach(([id, p]) => {
+              cuerpo += `  ${JSON.stringify(id)}: {\n`;
+              cuerpo += `    nombre: ${JSON.stringify(p.nombre)},\n`;
+              cuerpo += `    categoria: ${JSON.stringify(p.categoria)},\n`;
+              cuerpo += `    foto: ${JSON.stringify(p.foto)},\n`;
+              cuerpo += `    stock: ${p.stock},\n`;
+              cuerpo += `    limitada: ${p.limitada},\n`;
+              cuerpo += `  },\n`;
+            });
+        });
+
+        return `/* ============================================================
+   HAVANA LENCERÍAS — CONTROL DE STOCK
+   ------------------------------------------------------------
+   Archivo generado desde el panel (panel.html).
+   Para cambiar el stock no edites esto a mano: usá el panel,
+   ajustá las cantidades y descargá el archivo actualizado.
+   ============================================================ */
+
+const HAVANA_CONFIG = {
+  // Con esta cantidad o menos, el panel avisa "stock bajo"
+  umbralStockBajo: ${UMBRAL},
+};
+
+const HAVANA_PRODUCTOS = {${cuerpo}};
+
+/* ------------------------------------------------------------
+   Traduce un número de stock al cartelito que ve la clienta.
+   ------------------------------------------------------------ */
+function havanaEstadoStock(stock) {
+  if (stock <= 0) return { texto: "Agotado", clase: "agotado", disponible: false };
+  if (stock === 1) return { texto: "¡Última unidad!", clase: "critico", disponible: true };
+  if (stock === 2) return { texto: "Últimas 2 unidades", clase: "bajo", disponible: true };
+  return { texto: \`\${stock} disponibles\`, clase: "ok", disponible: true };
+}
+
+// Disponible tanto para las páginas como para el panel
+if (typeof window !== "undefined") {
+  window.HAVANA_PRODUCTOS = HAVANA_PRODUCTOS;
+  window.HAVANA_CONFIG = HAVANA_CONFIG;
+  window.havanaEstadoStock = havanaEstadoStock;
+}
+`;
+      }
+
+      document.getElementById("descargar").addEventListener("click", () => {
+        const blob = new Blob([generarArchivo()], { type: "text/javascript;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "stock.js";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Lo descargado pasa a ser la nueva referencia
+        Object.keys(productos).forEach((id) => {
+          original[id].stock = productos[id].stock;
+          original[id].limitada = productos[id].limitada;
+        });
+        actualizarEstado();
+      });
+
+      render();
+    })();
+  </script>
+
+</body>
+</html>

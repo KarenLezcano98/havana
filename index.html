@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Havana Lencerías</title>
+  <meta name="description" content="Havana Lencerías - tienda de lencería femenina elegante, delicada y moderna." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <p>
+      <span>Be sexy</span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Lo más sexy en lencerías</span>
+    </p>
+  </header>
+
+  <header class="header">
+    <div class="container header-content">
+      <a href="#inicio" class="logo">
+        <img src="Imagenes/logo-havana.png" alt="Havana Lencerías">
+      </a>
+
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#nosotras">Nosotras</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+
+    <!-- El video ocupa todo el hero y el texto va encima.
+         Si el video falla, el <video> sigue mostrando su poster: la portada
+         degrada sola a la versión con foto, sin que la clienta note nada. -->
+    <div class="hero-video" id="heroVideo">
+      <video id="heroVid" muted autoplay loop playsinline preload="auto" poster="Imagenes/hero-havana2.jpeg" aria-label="Video de Havana Lencerías"></video>
+      <script>
+        /* El src se elige acá, pegado al <video>, y no más abajo: así el
+           navegador empieza a bajarlo de una. Un celular no necesita 1440p,
+           y bajarle 3.4 MB sería un despropósito. */
+        (function () {
+          var v = document.getElementById("heroVid");
+          v.src = window.innerWidth <= 768
+            ? "Imagenes/video-portada-movil.mp4"   /*  720x1280 · 1.4 MB */
+            : "Imagenes/video-portada.mp4";        /* 1080x1920 · 3.4 MB */
+        })();
+      </script>
+
+      <div class="hero-overlay">
+        <div class="hero-text">
+          <span class="eyebrow">HAVANA LENCERÍAS</span>
+          <h1>Delicadeza y estilo<br>en cada detalle</h1>
+          <p>
+            Una colección pensada para mujeres que buscan suavidad,
+            elegancia y una estética moderna.
+          </p>
+
+          <div class="hero-actions">
+            <a href="catalogo.html" class="btn btn-hero">Ver catálogo</a>
+            <a href="https://wa.me/595982532340?text=%C2%A1Hola!%20Quisiera%20reservar%20una%20prenda%20%F0%9F%92%95" target="_blank" class="btn btn-hero-ghost">Reservar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="intro section">
+    <div class="container intro-box">
+      <span class="eyebrow">Nuestra esencia</span>
+      <h2>Una tienda con identidad delicada, limpia y atemporal</h2>
+      <p>
+        En Havana Lencerías buscamos una imagen femenina y actual, con piezas que transmitan
+        suavidad, elegancia y autenticidad sin excesos visuales.
+      </p>
+
+      <blockquote class="intro-quote">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        Cada prenda es una caricia que celebra tu feminidad
+      </blockquote>
+
+      <ul class="values-grid">
+        <li class="value-item">
+          <span class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8 6.8 19l1-5.8L3.5 9.2l5.9-.9L12 3z"/>
+            </svg>
+          </span>
+          <h3>Calidad</h3>
+          <p>Materiales suaves y confección cuidada en cada detalle.</p>
+        </li>
+
+        <li class="value-item">
+          <span class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 8.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c0 5.6 8.8 10.4 8.8 10.4s8.8-4.8 8.8-10.4z"/>
+            </svg>
+          </span>
+          <h3>Comodidad</h3>
+          <p>Diseñadas para acompañarte con suavidad todo el día.</p>
+        </li>
+
+        <li class="value-item">
+          <span class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 3a9 9 0 0 0 0 18M3 12h18"/>
+            </svg>
+          </span>
+          <h3>Diseño</h3>
+          <p>Estética moderna, atemporal y profundamente femenina.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="featured section" id="coleccion">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Colección</span>
+        <h2>Piezas seleccionadas</h2>
+        <p>Explorá cada categoría de forma separada.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card">
+          <img loading="lazy" decoding="async" src="Imagenes/modelo2.jpg" alt="Conjuntos delicados">
+          <div class="card-info">
+            <h3>Conjuntos delicados</h3>
+            <a href="catalogo.html#conjuntos">Ver colección</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy" decoding="async" src="Imagenes/Babydolls11.jpg" alt="Baby dolls">
+          <div class="card-info">
+            <h3>Baby dolls</h3>
+            <a href="catalogo.html#babydolls">Ver colección</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy" decoding="async" src="Imagenes/xio-1.jpg" alt="Body">
+          <div class="card-info">
+            <h3>Body</h3>
+            <a href="catalogo.html#body">Ver colección</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy" decoding="async" src="Imagenes/arnes7.jpg" alt="Línea Sexy & Accesorios" onerror="this.style.opacity='0.2'">
+          <div class="card-info">
+            <h3>Línea Sexy & Accesorios</h3>
+            <a href="catalogo.html#sexy">Ver colección</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="models section" id="modelos">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Modelos oficiales</span>
+        <h2>Nuestras prendas lucidas por modelos oficiales</h2>
+        <p>Una galería especial con Xio Ovelar y Monse Gomez.</p>
+      </div>
+
+      <div class="models-grid two-models">
+
+        <article class="model-card" data-model="Xio Ovelar">
+          <div class="model-slider" data-slider data-autoplay="5000">
+            <button class="slider-btn prev" type="button" aria-label="Anterior" data-prev>‹</button>
+
+            <div class="model-slider-track-wrapper">
+              <div class="model-slider-track">
+                <img loading="lazy" decoding="async" src="Imagenes/xio-1.jpg" alt="Xio Ovelar look 1" data-garment="Conjunto encaje" data-category="conjuntos">
+                <img loading="lazy" decoding="async" src="Imagenes/xio-2.jpg" alt="Xio Ovelar look 2" data-garment="Conjunto Rosa" data-category="conjunto-rosa">
+                <img loading="lazy" decoding="async" src="Imagenes/xio-3.jpg" alt="Xio Ovelar look 3" data-garment="Línea Sexy" data-category="sexy">
+              </div>
+            </div>
+
+            <button class="slider-btn next" type="button" aria-label="Siguiente" data-next>›</button>
+
+            <div class="slider-dots" data-dots></div>
+          </div>
+
+          <div class="model-info">
+            <h3>Xio Ovelar</h3>
+            <p class="garment-name" data-garment-label>Conjunto encaje</p>
+            <div class="model-actions">
+              <a href="https://wa.me/595982532340" target="_blank" class="want-link" data-want>Quiero este conjunto →</a>
+              <a href="catalogo.html#conjuntos" class="catalog-link" data-catalog>Ver en catálogo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="model-card" data-model="Monse Gomez">
+          <div class="model-slider" data-slider data-autoplay="5000">
+            <button class="slider-btn prev" type="button" aria-label="Anterior" data-prev>‹</button>
+
+            <div class="model-slider-track-wrapper">
+              <div class="model-slider-track">
+                <img loading="lazy" decoding="async" src="Imagenes/monse-1.jpg" alt="Monse Gomez look 1" data-garment="Baby dolls" data-category="babydolls">
+                <img loading="lazy" decoding="async" src="Imagenes/monse-2.jpg" alt="Monse Gomez look 2" data-garment="Body" data-category="body">
+                <img loading="lazy" decoding="async" src="Imagenes/monse-3.jpg" alt="Monse Gomez look 3" data-garment="Conjunto" data-category="conjuntos">
+              </div>
+            </div>
+
+            <button class="slider-btn next" type="button" aria-label="Siguiente" data-next>›</button>
+
+            <div class="slider-dots" data-dots></div>
+          </div>
+
+          <div class="model-info">
+            <h3>Monse Gomez</h3>
+            <p class="garment-name" data-garment-label>Baby dolls</p>
+            <div class="model-actions">
+              <a href="https://wa.me/595982532340" target="_blank" class="want-link" data-want>Quiero este conjunto →</a>
+              <a href="catalogo.html#babydolls" class="catalog-link" data-catalog>Ver en catálogo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="lookbook section" id="lookbook">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Lookbook</span>
+        <h2>Inspiración Havana</h2>
+        <p>Una selección visual de nuestros mejores looks.</p>
+      </div>
+
+      <div class="lookbook-masonry">
+        <a href="catalogo.html#conjunto-rosa" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa1.jpg" alt="Conjunto Rosa" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#babydolls" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegro1.jpg" alt="Baby dolls Negro" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#body" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/xio-1.jpg" alt="Body" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#sexy-arnes" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/arnes2.jpg" alt="Arnés" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#sexy-colegiala" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala1.jpg" alt="Colegiala" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#conjunto-negro" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro2.jpg" alt="Conjunto Negro" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#sexy-conejita" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/conejita1.jpg" alt="Conejita" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#babydolls-rosa" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa1.jpg" alt="Baby dolls Rosa" onerror="this.style.opacity='0.15'"></a>
+        <a href="catalogo.html#body-rojo" class="lookbook-item"><img loading="lazy" decoding="async" src="Imagenes/bodyrojo1.jpg" alt="Body Rojo" onerror="this.style.opacity='0.15'"></a>
+      </div>
+
+      <div class="lookbook-cta">
+        <a href="catalogo.html" class="btn btn-outline">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about section" id="nosotras">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img loading="lazy" decoding="async" src="Imagenes/img2.jpg" alt="Havana Lencerías estilo">
+      </div>
+
+      <div class="about-text">
+        <span class="eyebrow">Nosotras</span>
+        <h2>Una marca que apuesta por la sutileza</h2>
+        <p>
+          Havana Lencerías nace con la intención de ofrecer una propuesta visual refinada,
+          femenina y cercana, donde cada imagen acompañe una identidad elegante.
+        </p>
+        <p>
+          Creamos piezas que combinan sensualidad, comodidad y actitud. Porque cada mujer
+          merece sentirse poderosa y hermosa en su propia piel.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Todo lo que querés saber</h2>
+        <p>Respuestas a las dudas más comunes de nuestras clientas.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>
+            <span>¿Hacen envíos a todo el país?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>¡Sí! Enviamos a todo Paraguay. Coordinamos método y costo por WhatsApp según tu zona.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>¿Qué medios de pago aceptan?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>Aceptamos efectivo, transferencia bancaria y pagos con QR.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>¿Puedo cambiar una prenda si no me queda?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>Sí, aceptamos cambios dentro de los 7 días, siempre que la prenda esté en perfecto estado, con etiqueta y sin uso. Por razones de higiene, no se aceptan cambios en algunas piezas específicas.</p>
+        </details>
+
+        <details class="faq-item" id="faq-talles">
+          <summary>
+            <span>¿Cómo elijo mi talle?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>Tomá tus medidas (busto, cintura y cadera en cm) y comparalas con nuestra tabla. Si tenés dudas, escribinos por WhatsApp y te asesoramos.</p>
+          <div class="size-chart-wrapper">
+            <table class="size-chart">
+              <thead>
+                <tr>
+                  <th>Talle</th>
+                  <th>S</th>
+                  <th>M</th>
+                  <th>L</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Busto (cm)</th>
+                  <td>88</td>
+                  <td>92</td>
+                  <td>96</td>
+                </tr>
+                <tr>
+                  <th>Cintura (cm)</th>
+                  <td>68</td>
+                  <td>72</td>
+                  <td>76</td>
+                </tr>
+                <tr>
+                  <th>Cadera (cm)</th>
+                  <td>92</td>
+                  <td>96</td>
+                  <td>100</td>
+                </tr>
+              </tbody>
+            </table>
+            <small class="size-chart-note">Por higiene, las prendas íntimas no tienen cambio. Elegí bien tu talle.</small>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>¿Puedo reservar una prenda?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>
+            Sí. Para reservar una prenda se requiere una <strong>seña</strong>. Si reservás
+            2 productos o más, se pide un mínimo de seña por cada uno.
+          </p>
+          <p>
+            Tenés un plazo de <strong>30 días</strong> para retirar el pedido. Pasado ese
+            tiempo, la seña <strong>no se reembolsa</strong>, ya que mientras las prendas
+            estuvieron apartadas dejamos de venderlas a otras clientas.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>¿El envío llega en caja discreta?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>Sí, todos nuestros envíos van en empaques neutros y discretos, cuidando tu privacidad.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>¿Hacen canjes publicitarios con modelos o influencers?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <p>
+            No realizamos canjes a cambio de publicidad o fotos. Ya contamos con nuestra
+            modelo oficial y tuvimos malas experiencias con personas que recibieron prendas
+            y no cumplieron con lo acordado. Por favor, abstenerse de ofrecerse u ofrecer
+            a modelos para este tipo de intercambio: si en algún momento necesitamos un canje,
+            nosotras contactamos directamente.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-banner">
+    <div class="container">
+      <ul class="benefits-list">
+        <li>
+          <span class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="7" width="15" height="10" rx="2"/>
+              <polyline points="16 10 20 10 23 13 23 17 16 17"/>
+              <circle cx="6" cy="18.5" r="1.8"/>
+              <circle cx="18.5" cy="18.5" r="1.8"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Envíos a todo el país</strong>
+            <span>Coordinamos por WhatsApp</span>
+          </div>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/>
+              <line x1="2" y1="10" x2="22" y2="10"/>
+              <path d="M6 15h4"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Pago fácil y seguro</strong>
+            <span>Efectivo, Transferencia y QR</span>
+          </div>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 8.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c0 5.6 8.8 10.4 8.8 10.4s8.8-4.8 8.8-10.4z"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Atención personalizada</strong>
+            <span>Te ayudamos a elegir tu prenda</span>
+          </div>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 15.5 6.8 18l1-5.8L3.5 8.2l5.9-.9L12 2z"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Calidad premium</strong>
+            <span>Materiales suaves y duraderos</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <p>Havana Lencerías</p>
+        <span class="footer-tagline">
+          Be sexy
+          <svg class="tagline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"/>
+          </svg>
+        </span>
+        <span class="footer-slogan">Lo más sexy en lencerías · Elegancia íntima para cada momento</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/havanalencerias" target="_blank" aria-label="Instagram" class="footer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/havanalencerias/" target="_blank" aria-label="Facebook" class="footer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9V7.5a1.5 1.5 0 0 1 1.5-1.5H17V3h-2.5A4.5 4.5 0 0 0 10 7.5V9H7.5v3H10v9h4v-9h2.5l.5-3H14z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/595982532340?text=%C2%A1Hola!%20Te%20escribo%20desde%20la%20web%20de%20Havana%20Lencer%C3%ADas%20%F0%9F%92%95" target="_blank" aria-label="WhatsApp" class="footer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-3.6-7.2L21 3l-1.6 4A9 9 0 0 1 21 12z"/>
+              <path d="M8.5 9.5c.4 1.7 1.6 3.4 3.3 4.6 1.5 1 2.9 1.4 3.7 1.2.4-.1.7-.4.9-.8.1-.3.1-.7-.1-1l-.9-.9c-.2-.2-.5-.3-.8-.2l-.9.3c-.7-.4-1.4-1-1.9-1.7l.3-.9c.1-.3 0-.6-.2-.8l-.9-.9c-.3-.2-.7-.3-1-.1-.4.2-.7.5-.8.9 0 .1 0 .2 0 .3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visitanos</h4>
+        <ul class="footer-info">
+          <li>
+            <span class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            San Lorenzo, Paraguay
+          </li>
+          <li>
+            <span class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+            </span>
+            <span class="info-text">
+              Lun a Vie · 10:00 a 23:00<br>
+              Sáb · 10:00 a 21:00
+            </span>
+          </li>
+          <li>
+            <span class="info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/>
+              </svg>
+            </span>
+            <a href="https://wa.me/595982532340?text=%C2%A1Hola!%20Te%20escribo%20desde%20la%20web%20de%20Havana%20Lencer%C3%ADas%20%F0%9F%92%95" target="_blank" class="info-link">+595 982 532340</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul class="footer-nav">
+          <li><a href="#nosotras">Sobre nosotras</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Medios de pago</h4>
+        <div class="payment-methods">
+          <span class="payment-tag">Efectivo</span>
+          <span class="payment-tag">Transferencia</span>
+          <span class="payment-tag">QR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Havana Lencerías. Todos los derechos reservados.</p>
+      <p>Diseño y desarrollo por
+        <a href="https://www.kale.com.py/" target="_blank" rel="noopener" class="kale-link">
+          Kale
+          <svg class="kale-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"/>
+            <polyline points="8 7 17 7 17 16"/>
+          </svg>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Subir arriba">↑</button>
+
+  <div class="fab-nudge" id="fabNudge" aria-hidden="true">
+    <button type="button" class="fab-nudge-close" id="fabNudgeClose" aria-label="Cerrar mensaje">×</button>
+    <span class="fab-nudge-text" id="fabNudgeText"></span>
+  </div>
+
+  <div class="fab-menu" id="fabMenu">
+    <div class="fab-items">
+      <button type="button" class="fab-item fab-ai" id="fabChat" aria-label="Asistente IA">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="fab-badge" id="fabBadge" aria-hidden="true"></span>
+      </button>
+      <a href="https://wa.me/595982532340?text=%C2%A1Hola!%20Te%20escribo%20desde%20la%20web%20de%20Havana%20Lencer%C3%ADas%20%F0%9F%92%95" target="_blank" class="fab-item fab-wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/>
+        </svg>
+      </a>
+    </div>
+    <button type="button" class="fab-main" id="fabMain" aria-label="Abrir ayuda">
+      <svg class="fab-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      <svg class="fab-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chatbot-window" id="chatbotWindow" aria-hidden="true">
+    <header class="chatbot-header">
+      <div class="chatbot-avatar" aria-hidden="true">
+        <img src="Imagenes/logo-havana.jpg" alt="">
+      </div>
+      <div class="chatbot-meta">
+        <strong>Asistente Havana</strong>
+        <span><i></i> En línea</span>
+      </div>
+      <button type="button" class="chatbot-close" id="chatbotClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="chatbot-body" id="chatbotBody"></div>
+
+    <div class="chatbot-footer">
+      <small>¿No encontrás lo que buscás? <a href="https://wa.me/595982532340?text=%C2%A1Hola!%20Te%20escribo%20desde%20la%20web%20de%20Havana%20Lencer%C3%ADas%20%F0%9F%92%95" target="_blank">Hablá con nosotras</a></small>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       Video del hero.
+
+       Hay dos archivos, y el src se elige arriba según el ancho de pantalla:
+         Imagenes/video-portada.mp4        1080x1920 · 3.4 MB · escritorio
+         Imagenes/video-portada-movil.mp4   720x1280 · 1.4 MB · celular
+
+         Duran 8 segundos a propósito. Es un fondo en bucle: nadie se queda
+         mirándolo, y cada segundo de más es peso que la clienta espera.
+         Subir la resolución tampoco sirve, ya lo probamos: a 1440p pesaba
+         14 MB (25 s de espera en 3G) y en pantalla se veía igual.
+
+       Para cambiar el video hay que reemplazar LOS DOS. Deben ser .mp4 con
+       códec H.264: los .mov del iPhone vienen en HEVC y ningún navegador
+       los reproduce.
+       ============================================================ */
+    (function () {
+      const wrap = document.getElementById("heroVideo");
+      if (!wrap) return;
+      const video = wrap.querySelector("video");
+      if (!video) return;
+
+      const sinVideo = () => wrap.classList.add("sin-video");
+      const conVideo = () => wrap.classList.remove("sin-video");
+
+      /* Este script corre después del <video>, así que un error rápido pudo
+         saltar antes de escucharlo: hay que consultar el estado, no solo esperar. */
+      function revisar() {
+        if (video.error || video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) sinVideo();
+        else if (video.readyState >= 2) conVideo();
+      }
+
+      video.addEventListener("error", sinVideo);
+      video.addEventListener("loadeddata", conVideo);
+      video.addEventListener("canplay", conVideo);
+
+      revisar();
+      window.addEventListener("load", revisar);
+
+      /* Autoplay bloqueado (iOS en bajo consumo): se reintenta con la primera
+         interacción, que es lo que las políticas del navegador exigen. */
+      function reintentar() {
+        if (video.paused && !video.error) video.play().catch(() => {});
+      }
+      ["click", "touchstart", "scroll"].forEach((e) =>
+        window.addEventListener(e, reintentar, { once: true, passive: true })
+      );
+
+      /* Fuera de pantalla no tiene sentido gastar batería */
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver((entradas) => {
+          entradas.forEach((en) => {
+            if (en.isIntersecting) {
+              if (video.paused && !video.error) video.play().catch(() => {});
+            } else if (!video.paused) {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.15 }).observe(wrap);
+      }
+    })();
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    document.querySelectorAll("[data-slider]").forEach((slider) => {
+      const track = slider.querySelector(".model-slider-track");
+      const slides = Array.from(track.querySelectorAll("img"));
+      const prevBtn = slider.querySelector("[data-prev]");
+      const nextBtn = slider.querySelector("[data-next]");
+      const dotsContainer = slider.querySelector("[data-dots]");
+      const card = slider.closest(".model-card");
+      const wantLink = card ? card.querySelector("[data-want]") : null;
+      const catalogLink = card ? card.querySelector("[data-catalog]") : null;
+      const garmentLabel = card ? card.querySelector("[data-garment-label]") : null;
+      const modelName = card ? card.dataset.model : "";
+      const phone = "595982532340";
+      const autoplay = parseInt(slider.dataset.autoplay || "0", 10);
+      let index = 0;
+      let timer;
+
+      if (dotsContainer) {
+        slides.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.className = "slider-dot";
+          dot.type = "button";
+          dot.setAttribute("aria-label", `Ir al look ${i + 1}`);
+          dot.addEventListener("click", () => {
+            index = i;
+            updateSlider();
+            restartAutoplay();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateSlider() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        const current = slides[index];
+        const garment = current.dataset.garment || `Look ${index + 1}`;
+        const category = current.dataset.category || "";
+
+        if (garmentLabel) garmentLabel.textContent = garment;
+
+        if (wantLink) {
+          const msg = `¡Hola! Me interesa "${garment}" que luce ${modelName}. ¿Podrías darme más info? 💕`;
+          wantLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        }
+
+        if (catalogLink && category) {
+          catalogLink.href = `catalogo.html#${category}`;
+        }
+
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll(".slider-dot").forEach((d, i) => {
+            d.classList.toggle("active", i === index);
+          });
+        }
+      }
+
+      function go(delta) {
+        index = (index + delta + slides.length) % slides.length;
+        updateSlider();
+      }
+
+      function startAutoplay() {
+        if (!autoplay) return;
+        timer = setInterval(() => go(1), autoplay);
+      }
+
+      function restartAutoplay() {
+        clearInterval(timer);
+        startAutoplay();
+      }
+
+      prevBtn.addEventListener("click", () => { go(-1); restartAutoplay(); });
+      nextBtn.addEventListener("click", () => { go(1); restartAutoplay(); });
+
+      slider.addEventListener("mouseenter", () => clearInterval(timer));
+      slider.addEventListener("mouseleave", startAutoplay);
+
+      updateSlider();
+      startAutoplay();
+    });
+
+    (function () {
+      const fabMenu = document.getElementById("fabMenu");
+      const fabMain = document.getElementById("fabMain");
+      const fabChat = document.getElementById("fabChat");
+      const fabBadge = document.getElementById("fabBadge");
+      const fabNudge = document.getElementById("fabNudge");
+      const fabNudgeText = document.getElementById("fabNudgeText");
+      const fabNudgeClose = document.getElementById("fabNudgeClose");
+      const win = document.getElementById("chatbotWindow");
+      const body = document.getElementById("chatbotBody");
+
+      if (fabNudge && fabNudgeText) {
+        /* Íconos de línea en vez de emojis: son los mismos que ya usa la
+           franja de beneficios y el footer, así el bot no desentona. */
+        const ICONOS = {
+          chat: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+          regla: '<path d="M3 15.5 15.5 3 21 8.5 8.5 21z"/><path d="M7 11.5l2 2M10.5 8l2 2M14 4.5l2 2"/>',
+          envio: '<rect x="1" y="7" width="15" height="10" rx="2"/><polyline points="16 10 20 10 23 13 23 17 16 17"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="18.5" cy="18.5" r="1.8"/>',
+          pago: '<rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M6 15h4"/>',
+          corazon: '<path d="M20.8 8.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c0 5.6 8.8 10.4 8.8 10.4s8.8-4.8 8.8-10.4z"/>',
+          estrella: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8 6.8 19l1-5.8L3.5 9.2l5.9-.9L12 3z"/>'
+        };
+
+        const nudges = [
+          { icono: "chat", texto: "¡Hola! ¿En qué te puedo ayudar?" },
+          { icono: "regla", texto: "¿Dudas con tu talle? Preguntame" },
+          { icono: "envio", texto: "¿Consultás envíos a tu zona?" },
+          { icono: "pago", texto: "Conocé nuestros medios de pago" },
+          { icono: "corazon", texto: "¿Buscás algo especial?" },
+          { icono: "estrella", texto: "Reservá tu prenda favorita" },
+          { icono: "chat", texto: "¿Te ayudo a elegir?" }
+        ];
+        let nudgeIndex = 0;
+        let rotateTimer;
+        let dismissed = sessionStorage.getItem("havanaNudgeDismissed_v2") === "1";
+        let temporarilyHidden = false;
+
+        function showNudge(n) {
+          fabNudgeText.innerHTML =
+            '<svg class="nudge-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+            'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            ICONOS[n.icono] + "</svg><span></span>";
+          // El texto va por textContent: nunca se interpreta como HTML
+          fabNudgeText.querySelector("span").textContent = n.texto;
+          fabNudge.classList.add("show");
+          fabNudge.setAttribute("aria-hidden", "false");
+        }
+
+        function hideNudge() {
+          fabNudge.classList.remove("show");
+          fabNudge.setAttribute("aria-hidden", "true");
+        }
+
+        function rotate() {
+          if (dismissed || temporarilyHidden) return;
+          nudgeIndex = (nudgeIndex + 1) % nudges.length;
+          hideNudge();
+          setTimeout(() => {
+            if (!dismissed && !temporarilyHidden) showNudge(nudges[nudgeIndex]);
+          }, 400);
+        }
+
+        function startNudge() {
+          if (dismissed) return;
+          showNudge(nudges[nudgeIndex]);
+          clearInterval(rotateTimer);
+          rotateTimer = setInterval(rotate, 5000);
+        }
+
+        function pause() {
+          temporarilyHidden = true;
+          hideNudge();
+        }
+
+        function resume() {
+          if (dismissed) return;
+          temporarilyHidden = false;
+          setTimeout(() => {
+            if (!dismissed && !temporarilyHidden) showNudge(nudges[nudgeIndex]);
+          }, 300);
+        }
+
+        function dismissForever() {
+          dismissed = true;
+          hideNudge();
+          clearInterval(rotateTimer);
+          sessionStorage.setItem("havanaNudgeDismissed_v2", "1");
+        }
+
+        if (!dismissed) setTimeout(startNudge, 2500);
+
+        fabNudge.addEventListener("click", (e) => {
+          if (e.target === fabNudgeClose) return;
+          pause();
+          if (fabMenu && !fabMenu.classList.contains("open")) {
+            fabMenu.classList.add("open");
+            scheduleFabClose();
+          }
+        });
+
+        if (fabNudgeClose) {
+          fabNudgeClose.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dismissForever();
+          });
+        }
+
+        window.__havanaPauseNudge = pause;
+        window.__havanaResumeNudge = resume;
+      }
+
+      let fabCloseTimer;
+      const INACTIVITY_MS = 8000;
+
+      function scheduleFabClose() {
+        clearTimeout(fabCloseTimer);
+        fabCloseTimer = setTimeout(() => {
+          if (fabMenu) fabMenu.classList.remove("open");
+        }, INACTIVITY_MS);
+      }
+
+      if (fabMain && fabMenu) {
+        fabMain.addEventListener("click", () => {
+          const isOpen = fabMenu.classList.toggle("open");
+          if (isOpen) {
+            scheduleFabClose();
+            if (window.__havanaPauseNudge) window.__havanaPauseNudge();
+          } else {
+            clearTimeout(fabCloseTimer);
+            if (window.__havanaResumeNudge) window.__havanaResumeNudge();
+          }
+        });
+        fabMenu.addEventListener("mouseenter", () => clearTimeout(fabCloseTimer));
+        fabMenu.addEventListener("mouseleave", () => {
+          if (fabMenu.classList.contains("open")) scheduleFabClose();
+        });
+        document.addEventListener("click", (e) => {
+          if (!fabMenu.contains(e.target) && !fabNudge.contains(e.target)) {
+            if (fabMenu.classList.contains("open")) {
+              fabMenu.classList.remove("open");
+              if (window.__havanaResumeNudge) window.__havanaResumeNudge();
+            }
+            clearTimeout(fabCloseTimer);
+          }
+        });
+      }
+
+      if (!fabChat || !win || !body) return;
+
+      let chatIdleTimer;
+      const CHAT_IDLE_MS = 15000;
+      let chatInteracted = false;
+
+      function scheduleChatClose() {
+        clearTimeout(chatIdleTimer);
+        chatIdleTimer = setTimeout(() => {
+          if (!chatInteracted) {
+            win.classList.remove("open");
+            win.setAttribute("aria-hidden", "true");
+          }
+        }, CHAT_IDLE_MS);
+      }
+
+      const phone = "595982532340";
+      const topics = {
+        envios: {
+          label: "Envíos",
+          answer: "Enviamos a todo Paraguay. Coordinamos método y costo por WhatsApp según tu zona. También podés retirar personalmente."
+        },
+        pagos: {
+          label: "Medios de pago",
+          answer: "Aceptamos efectivo, transferencia bancaria y QR. El pago se coordina al confirmar tu pedido."
+        },
+        horario: {
+          label: "Horario",
+          answer: "Atendemos de lunes a viernes de 10:00 a 23:00 y los sábados de 10:00 a 21:00."
+        },
+        talles: {
+          label: "Talles",
+          answer: "Tenemos una tabla de medidas (S/M/L) con busto, cintura y cadera en la sección de Preguntas Frecuentes. ¡Revisala y elegí tu talle ideal!",
+          link: { text: "Ver guía de talles →", href: "#faq-talles" }
+        },
+        cambios: {
+          label: "Cambios",
+          answer: "Aceptamos cambios dentro de los 7 días si la prenda está sin uso y con etiqueta. Por higiene, algunas piezas no tienen cambio."
+        },
+        reserva: {
+          label: "Reservar prenda",
+          answer: "Para reservar se requiere una seña (si son 2 productos o más, un mínimo por cada uno). Tenés 30 días para retirar el pedido. Pasado ese plazo, la seña no se reembolsa."
+        },
+        catalogo: {
+          label: "Ver catálogo",
+          answer: "Explorá todo el catálogo con fotos de cada prenda.",
+          link: { text: "Abrir catálogo →", href: "catalogo.html" }
+        },
+        persona: {
+          label: "Hablar con una persona",
+          answer: "Te derivamos a WhatsApp para atención personalizada.",
+          link: { text: "Abrir WhatsApp →", href: `https://wa.me/${phone}?text=${encodeURIComponent("¡Hola! Vengo del chat de la web")}`, external: true }
+        }
+      };
+
+      function addMessage(text, from) {
+        const msg = document.createElement("div");
+        msg.className = `chatbot-msg ${from}`;
+        msg.innerHTML = text;
+        body.appendChild(msg);
+        body.scrollTop = body.scrollHeight;
+        return msg;
+      }
+
+      function addQuickReplies(keys) {
+        const wrap = document.createElement("div");
+        wrap.className = "chatbot-quick";
+        keys.forEach(k => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "chatbot-chip";
+          b.textContent = topics[k].label;
+          b.addEventListener("click", () => handleTopic(k, wrap));
+          wrap.appendChild(b);
+        });
+        body.appendChild(wrap);
+        body.scrollTop = body.scrollHeight;
+      }
+
+      function handleTopic(key, prevChips) {
+        chatInteracted = true;
+        clearTimeout(chatIdleTimer);
+        const t = topics[key];
+        if (prevChips) prevChips.remove();
+        addMessage(t.label, "user");
+
+        setTimeout(() => {
+          let html = t.answer;
+          if (t.link) {
+            const target = t.link.external ? ` target="_blank"` : "";
+            html += `<a class="chatbot-link" href="${t.link.href}"${target}>${t.link.text}</a>`;
+          }
+          addMessage(html, "bot");
+          addQuickReplies(Object.keys(topics).filter(k => k !== key));
+        }, 350);
+      }
+
+      function start() {
+        if (body.dataset.started) return;
+        body.dataset.started = "1";
+        addMessage("Hola, soy el asistente de <strong>Havana Lencerías</strong>. ¿En qué te puedo ayudar?", "bot");
+        addQuickReplies(Object.keys(topics));
+      }
+
+      fabChat.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = win.classList.toggle("open");
+        win.setAttribute("aria-hidden", String(!isOpen));
+        if (fabMenu) fabMenu.classList.remove("open");
+        if (fabBadge) fabBadge.classList.add("hidden");
+        if (window.__havanaPauseNudge) window.__havanaPauseNudge();
+        if (isOpen) {
+          chatInteracted = false;
+          start();
+          scheduleChatClose();
+        } else {
+          clearTimeout(chatIdleTimer);
+        }
+      });
+
+      win.addEventListener("mouseenter", () => clearTimeout(chatIdleTimer));
+      win.addEventListener("mouseleave", () => {
+        if (win.classList.contains("open") && !chatInteracted) scheduleChatClose();
+      });
+
+      const closeBtn = document.getElementById("chatbotClose");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          win.classList.remove("open");
+          win.setAttribute("aria-hidden", "true");
+          clearTimeout(chatIdleTimer);
+        });
+      }
+
+      body.addEventListener("click", (e) => {
+        const link = e.target.closest(".chatbot-link");
+        if (!link) return;
+        const href = link.getAttribute("href") || "";
+        if (href.startsWith("#")) {
+          win.classList.remove("open");
+          win.setAttribute("aria-hidden", "true");
+          clearTimeout(chatIdleTimer);
+          const target = document.querySelector(href);
+          if (target && target.tagName === "DETAILS") {
+            setTimeout(() => { target.open = true; }, 350);
+          }
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

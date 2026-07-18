@@ -1,0 +1,2160 @@
+:root {
+  --bg: #fcf8f6;
+  --white: #ffffff;
+  --text: #4a403c;
+  --text-light: #7d716b;
+  --gold: #c8a76c;
+  --gold-dark: #ab8850;
+  --pink-soft: #f6eaee;
+  --pink-mid: #ecd9df;
+  --pink-deep: #dcbcc6;
+  --line: rgba(74, 64, 60, 0.12);
+  --shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  --radius: 20px;
+  /* Estilo editorial: solo para la barra superior, el menú y el hero */
+  --ink: #111010;
+  --cream: #efe9e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #fcf8f6 0%, #fffafa 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.topbar {
+  background: var(--ink);
+  text-align: center;
+  padding: 11px 16px;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.topbar p {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-sep {
+  color: var(--gold);
+}
+
+.header {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(74, 64, 60, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Tres columnas iguales a los lados: así el menú queda centrado respecto
+   a la página, no respecto al espacio que sobra al lado del logo. */
+.header-content {
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  flex-shrink: 0;
+}
+
+/* El logo ahora es PNG transparente: sin recorte circular ni borde */
+.logo img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--gold-dark);
+}
+
+/* Contrapeso del logo: sin esta tercera columna el menú no queda centrado */
+.header-spacer {
+  display: block;
+}
+
+/* ============================================================
+   HERO — foto a sangre + panel de video
+   ============================================================ */
+.hero {
+  --hero-pad: clamp(24px, 4vw, 60px);
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Descuenta barra superior (41px) y menú (84px) para que entre en pantalla */
+  min-height: min(760px, calc(100vh - 125px));
+  background: var(--ink);
+}
+
+/* Degradado más denso a la izquierda: es donde se apoya el texto */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  padding: var(--hero-pad);
+  background: linear-gradient(
+    90deg,
+    rgba(10, 8, 8, 0.9) 0%,
+    rgba(10, 8, 8, 0.55) 55%,
+    rgba(10, 8, 8, 0.2) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* El degradado no debe robarle el click a los botones */
+.hero-overlay .hero-text {
+  pointer-events: auto;
+}
+
+/* Sin esto el eyebrow y el resto se acomodan uno al lado del otro */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-video {
+  position: relative;
+  overflow: hidden;
+  background: #151212;
+}
+
+/* Absoluto: en flujo, el alto natural del video estiraría el hero.
+   El brillo se baja para que el texto blanco se lea encima. */
+.hero-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.78) saturate(0.95);
+  pointer-events: none;
+}
+
+/* Si el video falla, el <video> sigue mostrando su poster (la foto del hero),
+   así que la portada degrada sola a la versión con foto y nadie se entera.
+   Solo hay que bajarle más el brillo, porque la foto es mucho más luminosa. */
+.hero-video.sin-video video {
+  filter: brightness(0.58) saturate(0.9);
+}
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  margin-bottom: 18px;
+  color: var(--gold-dark);
+}
+
+.hero-text h1,
+.intro-box h2,
+.section-header h2,
+.about-text h2,
+.card-info h3,
+.model-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+/* Sobre la foto el texto va en mayúsculas espaciadas, no en la serif del resto */
+.hero-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: clamp(1.15rem, 1.9vw, 1.85rem);
+  line-height: 1.75;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.hero-text p {
+  max-width: 420px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 34px;
+}
+
+.hero-text .eyebrow {
+  color: var(--gold);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+}
+
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold-dark);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(200, 167, 108, 0.08);
+}
+
+/* Botones del hero: cuadrados y en mayúsculas, para el registro editorial */
+.btn-hero,
+.btn-hero-ghost {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 15px 30px;
+}
+
+.btn-hero {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+
+.btn-hero:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn-hero-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.btn-hero-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+
+.intro {
+  background: linear-gradient(180deg, #fffafb 0%, var(--pink-soft) 100%);
+}
+
+.intro-box {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(220, 188, 198, 0.35);
+  border-radius: var(--radius);
+  padding: 44px 36px;
+  box-shadow: var(--shadow);
+}
+
+.intro-quote {
+  position: relative;
+  margin: 32px auto 8px;
+  max-width: 620px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.intro-quote .quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  color: var(--gold);
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 6px;
+  font-style: normal;
+}
+
+.values-grid {
+  list-style: none;
+  margin: 38px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(220, 188, 198, 0.45);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 0 8px;
+}
+
+.value-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--pink-soft);
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+}
+
+.value-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.value-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.value-item p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.intro-box h2,
+.section-header h2,
+.about-text h2 {
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  margin-bottom: 14px;
+}
+
+.intro-box p,
+.section-header p,
+.about-text p,
+.model-info p {
+  color: var(--text-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.featured {
+  background: #fffdfd;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid rgba(220, 188, 198, 0.28);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 22px;
+}
+
+.card-info h3 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.card-info a {
+  color: var(--gold-dark);
+  border-bottom: 1px solid var(--gold-dark);
+  padding-bottom: 3px;
+  font-size: 0.92rem;
+}
+
+.models {
+  background: linear-gradient(180deg, #fffafb 0%, var(--pink-soft) 100%);
+}
+
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.models-grid.two-models {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.model-card {
+  background: var(--white);
+  border: 1px solid rgba(220, 188, 198, 0.28);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.model-slider {
+  position: relative;
+}
+
+.model-slider-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.model-slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+/* 4:5 en vez de alto fijo, para alinear con el resto de las grillas */
+.model-slider-track img {
+  min-width: 100%;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev {
+  left: 12px;
+}
+
+.slider-btn.next {
+  right: 12px;
+}
+
+.model-info {
+  padding: 22px;
+  text-align: center;
+}
+
+.model-info h3 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.garment-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+  min-height: 1.2em;
+  transition: opacity 0.25s ease;
+}
+
+.model-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.want-link,
+.catalog-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.want-link {
+  color: var(--gold-dark);
+  border-bottom: 1px solid rgba(171, 136, 80, 0.4);
+}
+
+.catalog-link {
+  color: var(--text-light);
+  border-bottom: 1px solid rgba(125, 113, 107, 0.3);
+}
+
+.want-link:hover,
+.catalog-link:hover {
+  color: var(--text);
+  border-color: var(--text);
+  transform: translateX(2px);
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.slider-dot.active {
+  background: var(--white);
+  transform: scale(1.25);
+}
+
+.about {
+  background: linear-gradient(180deg, var(--pink-soft) 0%, #fffafa 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: var(--shadow);
+}
+
+.about-text {
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(220, 188, 198, 0.35);
+  border-radius: var(--radius);
+  padding: 38px 34px;
+  box-shadow: var(--shadow);
+}
+
+.about-text p {
+  margin-bottom: 14px;
+}
+
+.contact {
+  background: #fffdfd;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid rgba(220, 188, 198, 0.28);
+  padding: 30px 24px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(180deg, #fffefe 0%, var(--pink-soft) 100%);
+}
+
+.contact-card strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.contact-card span {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.lookbook {
+  background: linear-gradient(180deg, var(--pink-soft) 0%, #fffafa 100%);
+}
+
+/* Antes era masonry (alturas irregulares). Ahora grilla pareja en 4:5,
+   igual que el catálogo y la colección. */
+.lookbook-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.lookbook-item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--pink-soft);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.lookbook-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+}
+
+.lookbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.lookbook-item:hover img {
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   MARCA DE AGUA (capa CSS)
+   Las fotos ya vienen con la marca grabada; esto suma un sello
+   en el lookbook y desalienta el arrastrar/guardar imagen.
+   ============================================================ */
+.lookbook-item img,
+.card img,
+.model-slider-track img,
+.hero-image img,
+.about-image img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.lookbook-item::before {
+  content: "© HAVANA";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 4px 8px;
+  border-radius: 0;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+.lookbook-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.faq {
+  background: linear-gradient(180deg, #fffafa 0%, var(--pink-soft) 100%);
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(220, 188, 198, 0.5);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item[open] {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  border-color: rgba(171, 136, 80, 0.5);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  color: var(--gold-dark);
+}
+
+.faq-toggle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold-dark);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.faq-item[open] .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  padding: 0 22px 20px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.size-chart-wrapper {
+  padding: 0 22px 22px;
+  overflow-x: auto;
+}
+
+.size-chart {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid rgba(220, 188, 198, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.size-chart th,
+.size-chart td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(220, 188, 198, 0.35);
+}
+
+.size-chart thead th {
+  background: var(--pink-soft);
+  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(220, 188, 198, 0.5);
+}
+
+.size-chart tbody th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--text);
+  background: #fdfafa;
+}
+
+.size-chart tbody td {
+  color: var(--text-light);
+}
+
+.size-chart tbody tr:last-child th,
+.size-chart tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.size-chart-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--gold-dark);
+  font-style: italic;
+  text-align: center;
+}
+
+.benefits-banner {
+  padding: 40px 0;
+  background: linear-gradient(180deg, #fffafb 0%, var(--pink-soft) 100%);
+  border-top: 1px solid rgba(220, 188, 198, 0.35);
+}
+
+.benefits-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(220, 188, 198, 0.5);
+  border-radius: 14px;
+}
+
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--gold-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.benefit-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.benefits-list strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.benefits-list span {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.footer {
+  border-top: 1px solid rgba(220, 188, 198, 0.35);
+  background: linear-gradient(180deg, #fff8fa 0%, #f8eef1 100%);
+  padding: 48px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 36px;
+}
+
+.footer-col h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--gold-dark);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tagline-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+}
+
+.footer-slogan {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.footer-icon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 188, 198, 0.6);
+  color: var(--text-light);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-icon:hover {
+  color: var(--gold-dark);
+  border-color: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+.footer-info,
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.footer-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.footer-info .info-text {
+  display: inline-block;
+}
+
+.footer-info .info-link {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.footer-info .info-link:hover {
+  color: var(--gold-dark);
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.info-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-nav a {
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--gold-dark);
+}
+
+.payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.payment-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(220, 188, 198, 0.6);
+  border-radius: 999px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(220, 188, 198, 0.4);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.kale-link {
+  color: var(--gold-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kale-link:hover {
+  opacity: 0.75;
+}
+
+.kale-arrow {
+  width: 12px;
+  height: 12px;
+}
+
+.fab-nudge {
+  position: fixed;
+  right: 86px;
+  bottom: 26px;
+  max-width: 220px;
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid rgba(74, 64, 60, 0.12);
+  border-radius: 16px;
+  padding: 10px 30px 10px 14px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+}
+
+.fab-nudge.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  animation: nudgeBounce 2.4s ease-in-out infinite;
+}
+
+.fab-nudge::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: 16px;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border-right: 1px solid rgba(74, 64, 60, 0.12);
+  border-top: 1px solid rgba(74, 64, 60, 0.12);
+  transform: rotate(45deg);
+}
+
+.fab-nudge-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.fab-nudge-close:hover {
+  background: #f7f3f1;
+  color: var(--text);
+}
+
+.fab-nudge-text {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.nudge-ico {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--gold-dark);
+}
+
+@keyframes nudgeBounce {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-3px); }
+}
+
+.fab-menu {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.fab-menu .fab-main,
+.fab-menu.open .fab-items {
+  pointer-events: auto;
+}
+
+.fab-main {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.fab-main:hover {
+  background: var(--gold-dark);
+}
+
+.fab-main svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.25s ease;
+}
+
+.fab-icon-close { display: none; }
+.fab-menu.open .fab-main { transform: rotate(45deg); background: var(--gold-dark); }
+
+.fab-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fab-menu.open .fab-items {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.fab-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid rgba(74, 64, 60, 0.12);
+  border-radius: 50%;
+  color: var(--gold-dark);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  font-family: inherit;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.fab-item:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.fab-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.fab-item.fab-wa svg {
+  width: 22px;
+  height: 22px;
+}
+
+.fab-item.fab-wa {
+  background: #25d366;
+  border-color: #25d366;
+  color: var(--white);
+}
+
+.fab-item.fab-wa:hover {
+  background: #20b858;
+  border-color: #20b858;
+}
+
+.fab-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: #e53935;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.fab-badge::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid #e53935;
+  animation: fabBadgePulse 1.8s ease-out infinite;
+}
+
+@keyframes fabBadgePulse {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  80%  { transform: scale(2);   opacity: 0; }
+  100% { transform: scale(2);   opacity: 0; }
+}
+
+.fab-badge.hidden {
+  display: none;
+}
+
+.chatbot-window {
+  position: fixed;
+  right: 22px;
+  bottom: 90px;
+  width: 320px;
+  max-width: calc(100vw - 44px);
+  max-height: min(520px, calc(100vh - 140px));
+  background: var(--white);
+  border: 1px solid rgba(74, 64, 60, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.chatbot-window.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(74, 64, 60, 0.08);
+}
+
+.chatbot-close {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chatbot-close:hover {
+  background: #f7f3f1;
+  color: var(--text);
+}
+
+.chatbot-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chatbot-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--pink-soft);
+  border: 1px solid rgba(74, 64, 60, 0.1);
+  flex-shrink: 0;
+}
+
+.chatbot-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chatbot-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-meta strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.chatbot-meta span {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.chatbot-meta span i {
+  width: 6px;
+  height: 6px;
+  background: #36c46b;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--white);
+}
+
+.chatbot-msg {
+  max-width: 85%;
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  animation: chatFade 0.2s ease;
+}
+
+.chatbot-msg.bot {
+  background: #f7f3f1;
+  color: var(--text);
+  border-bottom-left-radius: 3px;
+  align-self: flex-start;
+}
+
+.chatbot-msg.user {
+  background: var(--text);
+  color: var(--white);
+  border-bottom-right-radius: 3px;
+  align-self: flex-end;
+}
+
+.chatbot-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--gold-dark);
+  border-bottom: 1px solid rgba(171, 136, 80, 0.4);
+  padding-bottom: 1px;
+}
+
+.chatbot-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 2px 0;
+  animation: chatFade 0.25s ease;
+}
+
+.chatbot-chip {
+  border: 1px solid rgba(74, 64, 60, 0.15);
+  background: var(--white);
+  color: var(--text);
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  font-family: inherit;
+}
+
+.chatbot-chip:hover {
+  border-color: var(--text);
+  color: var(--gold-dark);
+}
+
+.chatbot-footer {
+  padding: 10px 16px;
+  text-align: center;
+  border-top: 1px solid rgba(74, 64, 60, 0.08);
+  background: var(--white);
+}
+
+.chatbot-footer small {
+  font-size: 0.72rem;
+  color: var(--text-light);
+}
+
+.chatbot-footer a {
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+
+@keyframes chatFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 84px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(74, 64, 60, 0.15);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.back-to-top:hover {
+  border-color: var(--text);
+  color: var(--gold-dark);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* El hero se apila: foto arriba, video abajo.
+     Acá el texto manda: la foto crece con él (si no, se corta el título). */
+  .hero {
+    min-height: 0;
+  }
+
+  /* En celular la pantalla ya es vertical: el video luce casi entero.
+     El texto se apoya abajo, sobre la parte más oscura del degradado. */
+  .hero-video {
+    min-height: 78vh;
+    display: flex;
+  }
+
+  .hero-overlay {
+    position: relative;
+    width: 100%;
+    justify-content: flex-end;
+    /* En vertical el degradado va de arriba abajo, no de izquierda a derecha */
+    background: linear-gradient(
+      180deg,
+      rgba(10, 8, 8, 0.55) 0%,
+      rgba(10, 8, 8, 0.28) 42%,
+      rgba(10, 8, 8, 0.88) 100%
+    );
+  }
+
+  .models-grid,
+  .models-grid.two-models {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Se desarma la grilla de 3 columnas: en pantallas chicas va apilado */
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    padding: 16px 0;
+  }
+
+  .header-spacer {
+    display: none;
+  }
+
+  .nav {
+    margin-right: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .benefits-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lookbook-masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    padding: 18px 16px;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .about-image img,
+  .model-slider-track img {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero-video {
+    min-height: 74vh;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .nav {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+  }
+
+  .topbar {
+    font-size: 0.72rem;
+    padding: 8px 12px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(1.05rem, 4.2vw, 1.4rem);
+    line-height: 1.7;
+  }
+
+  /* Los dos botones en la misma línea. flex-wrap: nowrap para que no se
+     vuelva a partir en dos renglones, y flex:1 para que se repartan el ancho
+     en partes iguales sin importar cuánto texto tenga cada uno. */
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Los dos botones tienen la misma altura, pero uno lleva una línea de texto
+     y el otro dos ("Reservar por WhatsApp" se parte). Sin este flex, la línea
+     sola se queda arriba y el texto no queda centrado en su caja. */
+  .hero-actions .btn {
+    flex: 1;
+    min-width: 0; /* sin esto el texto largo impide que el botón se achique */
+    max-width: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  /* "Nosotras" en una pantalla. La foto en 4:5 se comía 448px; en 16:10 baja
+     a ~224 y sigue leyéndose como foto, no como una franja. object-fit: cover
+     recorta en vez de deformar. */
+  .about {
+    padding: 44px 0;
+  }
+
+  /* Al lado del texto, la foto se estira hasta igualar el alto de la columna
+     en vez de tener una relación fija: si no, quedaría una franja corta al
+     lado de un bloque de texto largo. */
+  .about-image {
+    height: 100%;
+  }
+
+  .about-image img {
+    object-fit: cover;
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 100%;
+    /* La foto original ya viene cortada al torso. Encuadrando desde arriba
+       se ve la prenda entera en vez del recorte del medio. */
+    object-position: center 18%;
+  }
+
+  /* Foto y texto lado a lado también en celular, por pedido. Cada columna
+     queda en ~175px, así que la letra tiene que achicarse: si no, el párrafo
+     se parte en una tira de palabras sueltas. */
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .about-text h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .about-text p {
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+
+  .about-text .eyebrow {
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .intro-box,
+  .about-text {
+    padding: 30px 22px;
+  }
+
+  .about-text {
+    padding: 22px 20px;
+  }
+
+  .intro-quote {
+    font-size: 1.15rem;
+  }
+
+  /* Los 3 valores apilados ocupaban 529px: la mitad de la sección. En fila
+     bajan a un tercio y "Nuestra esencia" entra en una pantalla. El texto se
+     achica porque cada columna pasa a medir ~110px. */
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 24px;
+    padding-top: 22px;
+    gap: 10px;
+  }
+
+  .value-item {
+    padding: 0;
+  }
+
+  .value-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .value-item p {
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .card-info {
+    padding: 14px;
+  }
+
+  .card-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .card-info a {
+    font-size: 0.8rem;
+  }
+
+  .model-slider-track img {
+    aspect-ratio: 3 / 4;
+    height: auto;
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .model-info {
+    padding: 14px 10px;
+  }
+
+  .model-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+
+  .model-info p {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .garment-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .model-actions {
+    gap: 8px;
+  }
+
+  .want-link,
+  .catalog-link {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .slider-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  .slider-btn.prev { left: 6px; }
+  .slider-btn.next { right: 6px; }
+
+  .slider-dots {
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .slider-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  /* Las 4 secciones apiladas daban un pie de 831px. La marca ocupa el ancho
+     completo (lleva el nombre y las redes), y debajo "Visitanos" e
+     "Información" van a la par, que son listas cortas. "Medios de pago"
+     vuelve a ocupar todo el ancho porque son etiquetas en fila. */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-col:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .benefits-banner {
+    padding: 28px 0;
+  }
+
+  .benefits-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .lookbook-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .payment-methods {
+    justify-content: center;
+  }
+
+  /* Los iconos no coincidían entre sí: en la fila del teléfono el texto es
+     corto y el conjunto quedaba centrado, pero en las de dirección y horario
+     el texto se parte en dos líneas, ocupa todo el ancho y el centrado deja
+     de tener efecto, así que el icono se iba contra el borde.
+
+     La solución no es centrar cada fila, sino centrar la LISTA entera como
+     bloque (width: fit-content + margin auto) y alinear las filas a la
+     izquierda dentro de ella: así los tres iconos caen en la misma vertical. */
+  .footer-info {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    align-items: flex-start;
+  }
+
+  .footer-info li {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .faq-item summary {
+    padding: 14px 18px;
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    padding: 0 18px 16px;
+    font-size: 0.88rem;
+  }
+
+  .size-chart-wrapper {
+    padding: 0 14px 18px;
+  }
+
+  .slider-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .back-to-top {
+    right: 20px;
+    bottom: 80px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .fab-nudge {
+    right: 80px;
+    max-width: 180px;
+    font-size: 0.76rem;
+    padding: 9px 26px 9px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .card-info {
+    padding: 12px 10px;
+  }
+
+  .card-info h3 {
+    font-size: 1.1rem;
+    line-height: 1.15;
+  }
+
+  .card-info a {
+    font-size: 0.72rem;
+  }
+
+  .lookbook-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .nav {
+    gap: 10px;
+    font-size: 0.82rem;
+  }
+
+  .footer-grid {
+    padding-bottom: 20px;
+  }
+
+  /* Las dos modelos van lado a lado, por pedido. La tarjeta queda en ~174px,
+     así que todo lo de adentro tiene que achicarse: si no, las flechas del
+     carrusel tapan la foto y los textos se parten en pedazos. */
+  .models-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .models-grid.two-models {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .model-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .want-link,
+  .catalog-link {
+    font-size: 0.62rem;
+  }
+
+  .garment-name {
+    font-size: 0.65rem;
+  }
+}
+/* ============================================================
+   Pantallas cortas: iPhone SE (667px de alto) y Android chicos (~780px).
+   Se separa por ALTO y no por ancho a propósito: el iPhone 14 mide
+   390px de ancho igual que el SE, pero tiene 844px de alto y ahí
+   todo entra sin necesidad de achicar nada. El corte en 800px deja
+   afuera al iPhone 14 (844) y agarra a los que sí lo necesitan.
+   ============================================================ */
+@media (max-width: 480px) and (max-height: 800px) {
+  .section {
+    padding: 36px 0;
+  }
+
+  .about {
+    padding: 32px 0;
+  }
+
+  .intro-box {
+    padding: 22px 18px;
+  }
+
+  .intro-box h2 {
+    font-size: 1.55rem;
+    line-height: 1.15;
+  }
+
+  .intro-box > p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .intro-quote {
+    margin: 18px auto 4px;
+    font-size: 0.95rem;
+  }
+
+  .values-grid {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .about-image img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .about-text {
+    padding: 18px 16px;
+  }
+
+  .about-text h2 {
+    font-size: 1.55rem;
+  }
+
+  .about-text p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-bottom: 7px;
+  }
+
+  .section-header {
+    margin-bottom: 18px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-header > p {
+    font-size: 0.8rem;
+  }
+}

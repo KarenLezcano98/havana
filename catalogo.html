@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | Havana Lencerías</title>
+  <meta name="description" content="Catálogo de Havana Lencerías" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="catalogo.css" />
+</head>
+<body>
+
+  <nav class="catalog-nav">
+    <div class="container catalog-nav-content">
+      <a href="index.html" class="logo">
+        <img src="Imagenes/logo-havana.png" alt="Havana Lencerías" class="logo-img">
+      </a>
+
+      <div class="catalog-links">
+        <a href="index.html">Inicio</a>
+        <a href="#edicion-limitada" class="link-limitada">Edición Limitada</a>
+        <a href="#conjuntos">Conjuntos</a>
+        <a href="#babydolls">Baby dolls</a>
+        <a href="#body">Body</a>
+        <a href="#sexy">Línea Sexy</a>
+      </div>
+
+      <div class="catalog-nav-spacer" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <!-- Portada del catálogo: 4 videos en fila con el texto encima.
+       Si el navegador no reproduce video, cada cuadro deja ver su poster:
+       la portada nunca queda en negro. -->
+  <header class="cat-hero" id="catHero">
+    <div class="cat-hero-mosaico">
+      <div class="cat-tile">
+        <video muted loop playsinline preload="metadata" poster="Imagenes/cat-video1-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="Imagenes/cat-video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="cat-tile">
+        <video muted loop playsinline preload="metadata" poster="Imagenes/cat-video2-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="Imagenes/cat-video2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="cat-tile">
+        <video muted loop playsinline preload="metadata" poster="Imagenes/cat-video3-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="Imagenes/cat-video3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="cat-tile">
+        <video muted loop playsinline preload="metadata" poster="Imagenes/cat-video4-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="Imagenes/cat-video4.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- El texto va encima de los videos, no en una banda aparte -->
+    <div class="cat-hero-overlay">
+      <div class="cat-hero-texto">
+        <span class="section-tag">Catálogo</span>
+        <h1>Selección Havana</h1>
+        <p>Descubrí nuestros productos organizados por categoría.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="catalog-main">
+    <div class="container">
+
+      <section class="catalog-section catalog-section-limitada" id="edicion-limitada">
+        <div class="catalog-section-header limitada-header">
+          <span class="section-tag">Piezas exclusivas</span>
+          <h2>Edición Limitada</h2>
+          <p>Pocas unidades, una sola oportunidad. Cuando se agotan, no vuelven.</p>
+        </div>
+
+        <div class="subcategory-grid" id="limitadaGrid"></div>
+      </section>
+
+      <section class="catalog-section" id="conjuntos">
+        <div class="catalog-section-header">
+          <span class="section-tag">Categoría</span>
+          <h2>Conjuntos</h2>
+          <p>Modelos delicados y femeninos para el día a día o momentos especiales.</p>
+        </div>
+
+        <div class="subcategory-grid">
+          <a href="#conjunto-rosa" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa1.jpg" alt="Conjunto Rosa" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conjunto Rosa</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#conjunto-negro" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conjunto-negro2.jpg" alt="Conjunto Negro" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conjunto Negro</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#conjunto-blanco" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conjunto-blanco2.jpg" alt="Conjunto Blanco" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conjunto Blanco</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#conjunto-rojo" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conjunto-rojo2.jpg" alt="Conjunto Rojo" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conjunto Rojo</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#conjunto-negro-2" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conjunto-negro-2.jpg" alt="Conjunto Negro 2" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conjunto Negro 2</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="subcategory-section" id="conjunto-rosa">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Conjuntos</span>
+            <h3>Conjunto Rosa</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa1.jpg" alt="Conjunto Rosa 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa2.jpg" alt="Conjunto Rosa 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa3.jpg" alt="Conjunto Rosa 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rosa4.jpg" alt="Conjunto Rosa 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="conjunto-negro">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Conjuntos</span>
+            <h3>Conjunto Negro</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro1.jpg" alt="Conjunto Negro 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro2.jpg" alt="Conjunto Negro 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro3.jpg" alt="Conjunto Negro 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro4.jpg" alt="Conjunto Negro 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="conjunto-blanco">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Conjuntos</span>
+            <h3>Conjunto Blanco</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-blanco1.jpg" alt="Conjunto Blanco 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-blanco2.jpg" alt="Conjunto Blanco 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-blanco3.jpg" alt="Conjunto Blanco 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="conjunto-rojo">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Conjuntos</span>
+            <h3>Conjunto Rojo</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rojo1.jpg" alt="Conjunto Rojo 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rojo2.jpg" alt="Conjunto Rojo 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rojo3.jpg" alt="Conjunto Rojo 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-rojo4.jpg" alt="Conjunto Rojo 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="conjunto-negro-2">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Conjuntos</span>
+            <h3>Conjunto Negro 2</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro-2.jpg" alt="Conjunto Negro 2 - 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro-3.jpg" alt="Conjunto Negro 2 - 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conjunto-negro-4.jpg" alt="Conjunto Negro 2 - 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="babydolls">
+        <div class="catalog-section-header">
+          <span class="section-tag">Categoría</span>
+          <h2>Baby dolls</h2>
+          <p>Piezas ligeras, suaves y con una estética femenina y sofisticada.</p>
+        </div>
+
+        <div class="subcategory-grid">
+          <a href="#babydolls-1" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydolls11.jpg" alt="Baby dolls 1" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls 1</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-azul" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydollsazul1.jpg" alt="Baby dolls Azul" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Azul</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-2" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydolls1.jpg" alt="Baby dolls 2" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls 2</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-rosa" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa1.jpg" alt="Baby dolls Rosa" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Rosa</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-blanco" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydollsblanco1.jpg" alt="Baby dolls Blanco" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Blanco</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-negro" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydollsnegro1.jpg" alt="Baby dolls Negro" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Negro</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-negro-largo" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/Babydollsnegrolargo1.jpg" alt="Baby dolls Negro Largo" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Negro Largo</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#babydolls-azul-marino" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/babyazulmarino1.jpg" alt="Baby dolls Azul Marino" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Baby dolls Azul Marino</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-1">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls 1</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls11.jpg" alt="Baby dolls 1 - 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls12.jpg" alt="Baby dolls 1 - 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls13.jpg" alt="Baby dolls 1 - 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-azul">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Azul</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsazul1.jpg" alt="Baby dolls Azul 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsazul2.jpg" alt="Baby dolls Azul 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsazul3.jpg" alt="Baby dolls Azul 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-2">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls 2</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls1.jpg" alt="Baby dolls 2 - 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls2.jpg" alt="Baby dolls 2 - 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls3.jpg" alt="Baby dolls 2 - 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydolls4.jpg" alt="Baby dolls 2 - 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-rosa">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Rosa</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa1.jpg" alt="Baby dolls Rosa 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa2.jpg" alt="Baby dolls Rosa 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa3.jpg" alt="Baby dolls Rosa 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsrosa4.jpg" alt="Baby dolls Rosa 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-blanco">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Blanco</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsblanco1.jpg" alt="Baby dolls Blanco 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsblanco2.jpg" alt="Baby dolls Blanco 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsblanco3.jpg" alt="Baby dolls Blanco 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-negro">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Negro</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegro1.jpg" alt="Baby dolls Negro 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegro2.jpg" alt="Baby dolls Negro 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegro3.jpg" alt="Baby dolls Negro 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-negro-largo">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Negro Largo</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegrolargo1.jpg" alt="Baby dolls Negro Largo 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegrolargo2.jpg" alt="Baby dolls Negro Largo 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/Babydollsnegrolargo3.jpg" alt="Baby dolls Negro Largo 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="babydolls-azul-marino">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Baby dolls</span>
+            <h3>Baby dolls Azul Marino</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/babyazulmarino1.jpg" alt="Baby dolls Azul Marino 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/babyazulmarino2.jpg" alt="Baby dolls Azul Marino 2" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="sexy">
+        <div class="catalog-section-header">
+          <span class="section-tag">Categoría</span>
+          <h2>Línea Sexy</h2>
+          <p>Disfraces y conjuntos para sorprender. Explorá por estilo de personaje.</p>
+        </div>
+
+        <div class="subcategory-grid">
+          <a href="#sexy-enfermera" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/enfermera1.jpg" alt="Enfermera sexy" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Enfermera</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#sexy-colegiala" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/colegiala1.jpg" alt="Colegiala sexy" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Colegiala</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#sexy-conejita-negro" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conejitanegro1.jpg" alt="Conejita negro con accesorios" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conejita Negro</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#sexy-arnes" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/arnes1.jpg" alt="Arnés de cuerpo" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Arnés de cuerpo</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#sexy-conejita" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/conejita1.jpg" alt="Conejita sexy" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Conejita</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#sexy-kitsumisa" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/kitsumisa1.jpg" alt="Kitsumisa" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Kit Sumisa</h3>
+              <span>Ver modelo</span>
+            </div>
+          </a>
+
+          <a href="#sexy-latigo" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/latigo1.jpg" alt="Látigo" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Látigo</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="subcategory-section" id="sexy-enfermera">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Enfermera</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/enfermera1.jpg" alt="Enfermera 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/enfermera2.jpg" alt="Enfermera 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/enfermera3.jpg" alt="Enfermera 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/enfermera4.jpg" alt="Enfermera 4" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-colegiala">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Colegiala</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala1.jpg" alt="Colegiala 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala2.jpg" alt="Colegiala 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala3.jpg" alt="Colegiala 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala4.jpg" alt="Colegiala 4" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala5.jpg" alt="Colegiala 5" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/colegiala6.jpg" alt="Colegiala 6" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-conejita-negro">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Conejita Negro</h3>
+            <p>Versión en negro con accesorios.</p>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro1.jpg" alt="Conejita negro 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro2.jpg" alt="Conejita negro 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro3.jpg" alt="Conejita negro 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro4.jpg" alt="Conejita negro 4" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro5.jpg" alt="Conejita negro 5" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejitanegro6.jpg" alt="Conejita negro 6" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-arnes">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Arnés de cuerpo</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes1.jpg" alt="Arnés 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes2.jpg" alt="Arnés 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes3.jpg" alt="Arnés 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes4.jpg" alt="Arnés 4" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes5.jpg" alt="Arnés 5" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes6.jpg" alt="Arnés 6" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/arnes7.jpg" alt="Arnés 7" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-conejita">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Conejita</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita1.jpg" alt="Conejita 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita2.jpg" alt="Conejita 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita3.jpg" alt="Conejita 3" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita4.jpg" alt="Conejita 4" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita5.jpg" alt="Conejita 5" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/conejita6.jpg" alt="Conejita 6" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-kitsumisa">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Kit Sumisa</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/kitsumisa1.jpg" alt="Kitsumisa 1" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="sexy-latigo">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Línea Sexy</span>
+            <h3>Látigo</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/latigo1.jpg" alt="Látigo 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/latigo2.jpg" alt="Látigo 2" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="catalog-section" id="body">
+        <div class="catalog-section-header">
+          <span class="section-tag">Categoría</span>
+          <h2>Body</h2>
+          <p>Bodies elegantes y modernos para realzar tu silueta.</p>
+        </div>
+
+        <div class="subcategory-grid">
+          <a href="#body-1" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/body1.jpg" alt="Body 1" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Body 1</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#body-rojo" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/bodyrojo1.jpg" alt="Body Rojo" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Body Rojo</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+
+          <a href="#body-negro" class="subcategory-card">
+            <img loading="lazy" decoding="async" src="Imagenes/bodynegro1.jpg" alt="Body Negro" onerror="this.style.opacity='0.15'">
+            <div class="subcategory-overlay">
+              <h3>Body Negro</h3>
+              <span>Ver modelos</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="subcategory-section" id="body-1">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Body</span>
+            <h3>Body 1</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/body1.jpg" alt="Body 1 - 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/body2.jpg" alt="Body 1 - 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/body3.jpg" alt="Body 1 - 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="body-rojo">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Body</span>
+            <h3>Body Rojo</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodyrojo1.jpg" alt="Body Rojo 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodyrojo2.jpg" alt="Body Rojo 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodyrojo3.jpg" alt="Body Rojo 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+
+        <div class="subcategory-section" id="body-negro">
+          <div class="subcategory-section-header">
+            <span class="section-tag">Body</span>
+            <h3>Body Negro</h3>
+          </div>
+          <div class="gallery-grid">
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodynegro1.jpg" alt="Body Negro 1" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodynegro2.jpg" alt="Body Negro 2" onerror="this.style.opacity='0.15'"></a>
+            <a href="https://wa.me/595982532340" target="_blank" class="gallery-item"><img loading="lazy" decoding="async" src="Imagenes/bodynegro3.jpg" alt="Body Negro 3" onerror="this.style.opacity='0.15'"></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button id="catalogBackToTop" class="catalog-back-to-top" aria-label="Subir arriba">↑</button>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("catalogBackToTop");
+      if (!btn) return;
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) btn.classList.add("show");
+        else btn.classList.remove("show");
+      });
+      btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const phone = "595982532340";
+
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        const img = item.querySelector("img");
+        if (!img) return;
+
+        const section = item.closest(".subcategory-section") || item.closest(".catalog-section");
+        const header = section ? section.querySelector("h3, h2") : null;
+        const conjunto = header ? header.textContent.trim() : "";
+
+        if (!conjunto) return;
+
+        const siblings = Array.from(
+          (item.parentElement || document).querySelectorAll(".gallery-item")
+        );
+        const photoNum = siblings.indexOf(item) + 1;
+
+        const msg = `¡Hola! Me interesa el ${conjunto} que vi en el catálogo (foto ${photoNum}). ¿Podrías darme más info? 💕`;
+        item.setAttribute("href", `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
+        item.setAttribute("target", "_blank");
+        item.setAttribute("rel", "noopener");
+      });
+    })();
+  </script>
+
+  <script>
+    /* ============================================================
+       Mosaico de videos de la portada del catálogo.
+
+       Los 4 clips son Imagenes/cat-video1..4.mp4 (~600 KB c/u, 7 s en bucle).
+       Salieron de cortar el video de portada en cuatro momentos distintos.
+       Para cambiarlos hay que reemplazar el .mp4 y su -poster.jpg.
+
+       Si un video falla, el <video> se queda mostrando su poster solo:
+       no hace falta hacer nada, y por eso cada cuadro tiene el suyo.
+       ============================================================ */
+    (function () {
+      const hero = document.getElementById("catHero");
+      if (!hero) return;
+      const videos = [...hero.querySelectorAll("video")];
+      if (!videos.length) return;
+
+      /* Cuatro videos moviéndose a la vez marean a mucha gente. Si la persona
+         pidió menos movimiento en su sistema, se queda con los posters fijos. */
+      const quieto = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (quieto.matches) return;
+
+      const reproducir = () => videos.forEach((v) => {
+        if (v.paused && !v.error) v.play().catch(() => {});
+      });
+      const frenar = () => videos.forEach((v) => {
+        if (!v.paused) v.pause();
+      });
+
+      reproducir();
+
+      /* Si el navegador bloquea el arranque automático, largan al primer toque */
+      ["click", "touchstart", "scroll"].forEach((e) =>
+        window.addEventListener(e, reproducir, { once: true, passive: true })
+      );
+
+      /* Con la portada fuera de pantalla no tiene sentido decodificar 4 videos:
+         se pausan y así no se come la batería del celular al scrollear. */
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(
+          (entradas) => entradas.forEach((en) => (en.isIntersecting ? reproducir() : frenar())),
+          { threshold: 0.1 }
+        ).observe(hero);
+      }
+    })();
+  </script>
+
+  <!-- El stock se carga al final: reescribe los enlaces de las prendas agotadas -->
+  <script src="stock.js"></script>
+  <script src="catalogo-stock.js"></script>
+
+</body>
+</html>

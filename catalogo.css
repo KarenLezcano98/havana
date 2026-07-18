@@ -1,0 +1,787 @@
+:root {
+  --bg: #fcfaf8;
+  --white: #ffffff;
+  --gold: #c7a86b;
+  --gold-dark: #a88953;
+  --text: #3d342f;
+  --text-soft: #7a6d66;
+  --line: #e9dfd9;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --pink-soft: #f6eaee;
+  --radius: 20px;
+  --cream: #efe9e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* Mismo registro editorial que el menú de la portada */
+.catalog-nav {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(74, 64, 60, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Igual que la portada: el logo a un lado y una columna espejo del otro,
+   para que el menú quede centrado respecto a la página. */
+.catalog-nav-content {
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.catalog-nav-spacer {
+  display: block;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+/* PNG transparente: sin recorte circular, que cortaría la caligrafía */
+.logo-img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.catalog-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  color: var(--text);
+  flex-wrap: wrap;
+}
+
+.catalog-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: color 0.3s ease;
+}
+
+.catalog-links a:hover {
+  color: var(--gold-dark);
+}
+
+/* ============================================================
+   Portada del catálogo: texto + mosaico de 4 videos.
+
+   Los videos están posicionados en absoluto a propósito. Si fueran
+   parte del flujo, su alto natural (960px) estiraría la fila del
+   grid y la portada mediría miles de píxeles. Con inset:0 el que
+   manda es el cuadro, no el video.
+   ============================================================ */
+.cat-hero {
+  --cat-hero-pad: clamp(24px, 4vw, 60px);
+  position: relative;
+  background: #111010;
+  overflow: hidden;
+}
+
+/* El texto va abajo y al centro. El degradado oscurece de abajo hacia arriba:
+   solo lo necesario para que el título se lea, dejando la parte de arriba de
+   los videos limpia.
+   pointer-events: none deja que el mouse llegue a los videos de abajo. */
+.cat-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: var(--cat-hero-pad);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 8, 0) 30%,
+    rgba(10, 8, 8, 0.45) 60%,
+    rgba(10, 8, 8, 0.9) 100%
+  );
+  pointer-events: none;
+}
+
+.cat-hero-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  pointer-events: auto;
+}
+
+/* Los 4 videos en una sola línea, a lo ancho de la pantalla */
+.cat-hero-mosaico {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.12); /* el gap deja ver esto: hace de línea fina */
+}
+
+/* La relación 4:5 es la que manda la altura de toda la portada, y es la misma
+   de las fotos del catálogo y del lookbook: todo el sitio con un solo formato. */
+.cat-tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #151212;
+}
+
+.cat-tile video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.86) saturate(0.95);
+  pointer-events: none;
+}
+
+.section-tag {
+  display: inline-block;
+  margin-bottom: 16px;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.cat-hero h1,
+.catalog-section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.cat-hero h1 {
+  font-size: clamp(2.4rem, 3.6vw, 3.8rem);
+  margin-bottom: 12px;
+  line-height: 1.05;
+}
+
+.catalog-section-header p {
+  color: var(--text-soft);
+}
+
+/* Sobre fondo oscuro el gris de --text-soft no se lee: acá va claro */
+.cat-hero p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 42ch;
+  line-height: 1.6;
+}
+
+.cat-hero .section-tag {
+  color: var(--gold);
+}
+
+.catalog-main {
+  padding: 20px 0 80px;
+}
+
+.catalog-section {
+  margin-bottom: 70px;
+}
+
+.catalog-section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.catalog-section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 8px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.catalog-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.catalog-card:hover {
+  transform: translateY(-6px);
+}
+
+.catalog-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.catalog-info {
+  padding: 22px;
+}
+
+.catalog-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.catalog-info p {
+  color: var(--text-soft);
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.catalog-info a {
+  color: var(--gold-dark);
+  border-bottom: 1px solid var(--gold-dark);
+  padding-bottom: 3px;
+  font-size: 0.92rem;
+}
+
+/* Acá había una regla que le ponía un recuadro con fondo a los encabezados de
+   las secciones impares (Edición Limitada, Baby dolls y Body), y las pares
+   quedaban sin él. Se quitó: todos los títulos se ven igual. */
+
+.subcategory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.subcategory-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4/5;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--pink-soft);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subcategory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+}
+
+.subcategory-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.subcategory-card:hover img {
+  transform: scale(1.05);
+}
+
+.subcategory-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 22px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.65) 100%);
+  color: #fff;
+}
+
+.subcategory-overlay h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.subcategory-overlay span {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  padding-bottom: 2px;
+}
+
+.subcategory-section {
+  margin-top: 60px;
+  scroll-margin-top: 100px;
+}
+
+.subcategory-section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.subcategory-section-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--pink-soft);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item::after {
+  content: "Consultar";
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   MARCA DE AGUA (capa CSS)
+   Las fotos ya vienen con la marca grabada; esta capa suma un
+   sello de esquina y desalienta el arrastrar/guardar imagen.
+   ============================================================ */
+.gallery-item img,
+.subcategory-card img,
+.logo-img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.gallery-item::before,
+.subcategory-card::before {
+  content: "© HAVANA";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 4px 8px;
+  border-radius: 0;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================================
+   DISPONIBILIDAD / STOCK
+   ============================================================ */
+.stock-badge {
+  display: inline-block;
+  align-self: center;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 0;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(3px);
+}
+
+/* En las tarjetas el badge va sobre la foto: fondo sólido para que se lea */
+/* El badge es un <span> dentro del overlay, así que ".subcategory-overlay span"
+   (la regla del "Ver modelos") le ganaba y le metía tamaño, subrayado y opacidad
+   que no le corresponden. Hay que reponerlos con esta especificidad. */
+.subcategory-overlay .stock-badge {
+  color: #fff;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  opacity: 1;
+  border-bottom: 0;
+  padding: 4px 10px;
+}
+
+.stock-ok {
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.stock-bajo {
+  background: rgba(199, 168, 107, 0.95);
+  border: 1px solid var(--gold-dark);
+  color: #fff;
+}
+
+.stock-critico {
+  background: rgba(183, 74, 90, 0.95);
+  border: 1px solid #9c3b4f;
+  color: #fff;
+}
+
+.stock-agotado {
+  background: rgba(70, 62, 58, 0.9);
+  border: 1px solid rgba(70, 62, 58, 0.9);
+  color: #fff;
+}
+
+/* Badge en el encabezado de la prenda (fuera de la foto) */
+.stock-linea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Sobre la foto el badge necesita relleno para leerse, pero acá compite con
+   el título: va en contorno, al mismo tono discreto que el "CONJUNTOS" de arriba. */
+.stock-linea .stock-badge {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.stock-linea .stock-ok {
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+}
+
+.stock-linea .stock-bajo {
+  border: 1px solid rgba(168, 137, 83, 0.5);
+  color: var(--gold-dark);
+}
+
+.stock-linea .stock-critico {
+  border: 1px solid rgba(183, 74, 90, 0.5);
+  color: #a33d4f;
+}
+
+.stock-linea .stock-agotado {
+  border: 1px solid rgba(70, 62, 58, 0.35);
+  color: var(--text-soft);
+}
+
+.stock-linea .limitada-tag.inline {
+  background: transparent;
+  border: 1px solid rgba(168, 137, 83, 0.5);
+  color: var(--gold-dark);
+}
+
+/* Prenda agotada: se atenúa pero sigue siendo consultable */
+.sin-stock img {
+  filter: grayscale(0.85);
+  opacity: 0.72;
+}
+
+.gallery-grid .gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.subcategory-section.sin-stock .gallery-item::after {
+  content: "Consultar reposición";
+}
+
+/* ============================================================
+   EDICIÓN LIMITADA
+   ============================================================ */
+.limitada-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  padding: 4px 9px;
+  border-radius: 0;
+  background: var(--gold-dark);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.limitada-tag.inline {
+  position: static;
+  box-shadow: none;
+}
+
+.catalog-section-limitada {
+  scroll-margin-top: 100px;
+}
+
+/* Sin recuadro ni fondo: el encabezado de Edición Limitada se ve igual que
+   el del resto de las categorías. Lo que distingue a la sección es el borde
+   dorado de cada prenda (.limitada-card), no una caja alrededor del título. */
+.limitada-header {
+  padding: 0;
+}
+
+.limitada-card {
+  border: 1px solid var(--gold);
+}
+
+.link-limitada {
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+.catalog-back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(74, 64, 60, 0.15);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.catalog-back-to-top:hover {
+  border-color: var(--text);
+  color: var(--gold-dark);
+}
+
+.catalog-back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .catalog-back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .catalog-grid,
+  .subcategory-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Se desarma la grilla de 3 columnas: en pantallas chicas va apilado */
+  .catalog-nav-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  .catalog-nav-spacer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .catalog-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    font-size: 0.88rem;
+  }
+
+  /* Cuatro en fila en un celular daría cuadros de menos de 100px de ancho:
+     no se vería nada. Acá pasan a 2 y 2, que es lo mismo en dos renglones. */
+  .cat-hero-mosaico {
+    grid-template-columns: repeat(2, 1fr);
+    order: 1;
+  }
+
+  /* En celular el texto NO va encima: sobre cuadros de 194px taparía las
+     prendas, que es lo que la clienta vino a ver. Va abajo de los videos,
+     en el flujo y sin degradado (el negro del hero ya hace de fondo). */
+  .cat-hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cat-hero-overlay {
+    position: relative;
+    order: 2;
+    background: none;
+    padding: 34px var(--cat-hero-pad) 38px;
+  }
+
+  .catalog-section {
+    margin-bottom: 48px;
+  }
+
+  .subcategory-section {
+    margin-top: 40px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .subcategory-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .catalog-card img {
+    height: auto;
+    max-height: 420px;
+  }
+
+  .subcategory-overlay {
+    padding: 12px;
+  }
+
+  .subcategory-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .subcategory-overlay span {
+    font-size: 0.65rem;
+  }
+
+  .gallery-item::after {
+    font-size: 0.68rem;
+    padding: 8px;
+  }
+
+  .logo-img {
+    height: 56px;
+  }
+
+  /* En pantallas chicas los sellos compiten con la foto: se achican */
+  .stock-badge {
+    font-size: 0.58rem;
+    padding: 4px 8px;
+    letter-spacing: 0.04em;
+    max-width: calc(100% - 10px);
+    white-space: normal;
+    text-align: center;
+  }
+
+  .limitada-tag {
+    font-size: 0.5rem;
+    padding: 4px 7px;
+    top: 8px;
+    right: 8px;
+  }
+
+  /* La tarjeta angosta no da para dos sellos arriba: el de copyright
+     se oculta porque la marca ya viene grabada en la propia foto */
+  .gallery-item::before,
+  .subcategory-card::before {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .subcategory-grid,
+  .gallery-grid {
+    gap: 8px;
+  }
+
+  .catalog-links {
+    gap: 10px;
+    font-size: 0.82rem;
+  }
+}
